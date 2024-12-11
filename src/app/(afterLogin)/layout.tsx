@@ -3,6 +3,8 @@ import styles from "@/app/(afterLogin)/layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/../public/logo.png"
+import NavMenu from "@/app/(afterLogin)/_component/NavMenu";
+import LogoutButton from "@/app/(afterLogin)/_component/LogoutButton";
 
 export default function AfterLoginLayout({children}: { children: ReactNode }) {
   return (
@@ -16,6 +18,13 @@ export default function AfterLoginLayout({children}: { children: ReactNode }) {
                   <Image src={Logo} alt={"logo"} width={30} height={30}></Image>
                 </div>
               </Link>
+              <nav>
+                <ul>
+                  <NavMenu/>
+                </ul>
+                <Link href="/compose/tweet" className={styles.postButton}>게시하기</Link>
+              </nav>
+              <LogoutButton/>
             </div>
           </section>
         </header>
