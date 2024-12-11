@@ -1,8 +1,7 @@
 "use client";
 
 import style from '@/app/(beforeLogin)/_component/login.module.css';
-import {useState} from "react";
-import {router} from "next/client";
+import {useState, useEffect} from "react";
 import {useRouter} from "next/navigation";
 
 export default function LoginModal() {

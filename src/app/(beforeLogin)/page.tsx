@@ -1,7 +1,7 @@
-import styles from "../(beforeLogin)/page.module.css"
+import styles from "@/app/(beforeLogin)/page.module.css"
 import Image from "next/image";
 import Link from "next/link";
-import xLogo from '../../../public/logo.png'
+import xLogo from '@/../public/logo.png'
 
 export default function Home() {
   return (
