@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <div className={styles.left}>
-        <Image src={xLogo} alt={"logo"}/>
+        <Image src={xLogo} alt={"logo"} width={350} height={350} />
       </div>
       <div className={styles.right}>
         <h1>지금 일어나고 있는 일</h1>
