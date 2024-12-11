@@ -23,6 +23,19 @@ export default function LoginModal() {
   const onChangePassword = () => {
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: any) => {
+      if (e.key === "Escape") {
+        router.back();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [router]);
+
   return (
     <div className={style.modalBackground}>
       <div className={style.modal}>

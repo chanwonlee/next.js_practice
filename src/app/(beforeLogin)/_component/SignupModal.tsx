@@ -31,6 +31,19 @@ export default function SignupModal() {
     e.target.files && setImageFile(e.target.files[0])
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: any) => {
+      if (e.key === "Escape") {
+        router.back();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [router]);
+
   const onSubmit: FormEventHandler = (e) => {
     e.preventDefault();
     fetch('http://localhost:9090/api/users', {
