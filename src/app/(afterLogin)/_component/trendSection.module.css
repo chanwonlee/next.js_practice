@@ -1,0 +1,22 @@
+.trendBg {
+    border-radius: 16px;
+    border: 1px solid #EFF3F4;
+}
+
+.trend {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.trend h3 {
+    padding: 12px 16px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.more {
+    color: #1D9BF1;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: normal;
+}

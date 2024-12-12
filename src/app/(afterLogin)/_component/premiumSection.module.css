@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+    justify-content: space-between;
+    font-size: 15px;
+    height: 144px;
+    width: 348px;
+    border: 1px solid #EFF3F4;
+    border-radius: 16px;
+    margin: 10px 0;
+}
+
+.button {
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 8px 28px;
+    background-color: #1D9BF1;
+    width: 86px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 26px;
+}
+
+.button:hover {
+    background-color: #1D92E2;
+}

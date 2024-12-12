@@ -81,7 +81,6 @@
 }
 
 .rightSectionInner {
-    background-color: aqua;
     height: 100%;
     width: 990px;
     display: flex;
@@ -94,10 +93,22 @@
     height: 200dvh;
 }
 
+.rightSectionFixed {
+    position: fixed;
+    width: inherit;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .rightSection {
-    background-color: blue;
     width: 350px;
     height: 100%;
+    display: flex;
+}
+
+.block {
+    height: 53px;
 }
 
 .search {
@@ -125,4 +136,17 @@
     margin-left: 5px;
     font-size: 15px;
     width: 270px;
+}
+
+.followRecommend {
+    justify-content: space-between;
+    font-size: 15px;
+    border: 1px solid #EFF3F4;
+    border-radius: 16px;
+    margin: 12px 0;
+}
+
+.followRecommend h3 {
+    font-size: 20px;
+    padding: 12px 16px;
 }
