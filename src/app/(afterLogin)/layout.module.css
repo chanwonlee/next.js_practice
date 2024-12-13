@@ -88,27 +88,21 @@
 }
 
 .main {
-    background-color: red;
     width: 600px;
     height: 200dvh;
-}
-
-.rightSectionFixed {
-    position: fixed;
-    width: inherit;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid rgb(239, 243, 244);
 }
 
 .rightSection {
     width: 350px;
     height: 100%;
     display: flex;
+    flex-direction: column;
 }
 
-.block {
+.rightSectionBlock {
     height: 53px;
+    flex-shrink: 0;
 }
 
 .search {
