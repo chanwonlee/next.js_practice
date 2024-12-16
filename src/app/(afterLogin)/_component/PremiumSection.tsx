@@ -1,7 +1,13 @@
+"use client"
+
 import styles from './premiumSection.module.css';
 import Link from "next/link";
+import {usePathname} from "next/navigation";
 
 export default function PremiumSection() {
+  const pathName = usePathname()
+  if (pathName === '/explore') return null
+
   return (
     <div className={styles.container}>
       <h2>
