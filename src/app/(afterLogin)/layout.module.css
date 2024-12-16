@@ -100,11 +100,6 @@
     flex-direction: column;
 }
 
-.rightSectionBlock {
-    height: 53px;
-    flex-shrink: 0;
-}
-
 .search {
     position: fixed;
     height: 42px;
