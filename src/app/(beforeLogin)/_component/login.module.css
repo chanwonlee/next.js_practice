@@ -4,17 +4,18 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    background-color: rgba(91, 112, 131, 0.4);
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    background-color: rgba(91, 112, 131, 0.4);
 }
 
 .modal {
-    background: black;
+    background-color: white;
+    color: black;
     position: relative;
-    top: 5%;
+    top: 8%;
     max-width: 80vw;
     min-width: 600px;
     border-radius: 16px;
@@ -23,10 +24,8 @@
     height: 450px;
 }
 
-.modalHeader {
-    padding: 36px 80px 20px;
-    font-size: 31px;
-    font-weight: bold;
+.modalBodyHeader {
+    padding: 20px 0;
 }
 
 .modal form {
@@ -37,7 +36,10 @@
 
 .modalBody {
     flex: 1;
-    padding: 0 80px;
+    padding: 0 32px;
+    font-size: 31px;
+    font-weight: bold;
+    margin: 0 118px
 }
 
 .inputDiv {
@@ -46,6 +48,7 @@
     height: 56px;
     position: relative;
     margin: 12px 0;
+    color: #536471;
 }
 
 .inputLabel {
@@ -53,7 +56,7 @@
     display: inline-block;
     position: absolute;
     top: 0;
-    border: 1px solid gray;
+    border: 1px solid #CFD9DE;
     border-radius: 4px;
     font-size: 13px;
     height: 56px;
@@ -73,21 +76,17 @@
     outline: none;
 }
 
-.input{
-    color: white;
-    background-color: black;
-}
-
-.modalFooter {
-    padding: 24px 80px;
+.input {
+    color: black;
+    background-color: white;
 }
 
 .actionButton {
-    width: 100%;
-    height: 50px;
+    height: 36px;
+    width: 300px;
     border-radius: 25px;
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: black;
     font-size: 17px;
     cursor: pointer;
     border: none;
@@ -97,32 +96,11 @@
     opacity: 0.5;
 }
 
+.actionButton:disabled:hover {
+    opacity: 0.5;
+}
+
 .actionButton:hover {
-    background-color: #e5e5e5;
-}
-
-.closeButton {
-    width: 34px;
-    height: 34px;
-    border-radius: 17px;
-    border: none;
-    cursor: pointer;
-    color: white;
-    background-color: black;
-    position: absolute;
-    left: 16px;
-    top: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.closeButton:after {
-    display: inline-block;
-    content: "\00d7";
-    font-size: 30px;
-}
-
-.closeButton:hover {
-    background-color: rgb(25, 25, 25);
+    opacity: 0.8;
+    transition-duration: 0.2s;
 }

@@ -1,8 +1,9 @@
 "use client";
 
-import style from '@/app/(beforeLogin)/_component/signup.module.css';
+import styles from '@/app/(beforeLogin)/_component/signup.module.css';
 import {useRouter} from "next/navigation";
 import {ChangeEventHandler, FormEventHandler, useEffect, useState} from "react";
+import ModalHeader from "@/app/(beforeLogin)/_component/ModalHeader";
 
 export default function SignupModal() {
   const [id, setId] = useState('');
@@ -10,12 +11,7 @@ export default function SignupModal() {
   const [nickname, setNickname] = useState('');
   const [image, setImage] = useState('');
   const [imageFile, setImageFile] = useState<File>();
-
   const router = useRouter();
-  const onClickClose = () => {
-    router.back();
-    // TODO: 뒤로가기가 /home이 아니면 /home으로 보내기
-  }
 
   const onChangeId: ChangeEventHandler<HTMLInputElement> = (e) => {
     setId(e.target.value)
@@ -24,9 +20,11 @@ export default function SignupModal() {
   const onChangePassword: ChangeEventHandler<HTMLInputElement> = (e) => {
     setPassword(e.target.value)
   };
+
   const onChangeNickname: ChangeEventHandler<HTMLInputElement> = (e) => {
     setNickname(e.target.value)
   };
+
   const onChangeImageFile: ChangeEventHandler<HTMLInputElement> = (e) => {
     e.target.files && setImageFile(e.target.files[0])
   };
@@ -67,44 +65,42 @@ export default function SignupModal() {
 
   return (
     <>
-      <div className={style.modalBackground}>
-        <div className={style.modal}>
-          <div className={style.modalHeader}>
-            <button className={style.closeButton} onClick={onClickClose}/>
-            <div>계정을 생성하세요.</div>
-          </div>
+      <div className={styles.modalBackground}>
+        <div className={styles.modal}>
+          <ModalHeader/>
           <form>
-            <div className={style.modalBody}>
-              <div className={style.inputDiv}>
-                <label className={style.inputLabel} htmlFor="id">아이디</label>
-                <input id="id" className={style.input} type="text" placeholder=""
+            <div className={styles.modalBody}>
+              <div className={styles.modalBodyHeader}>계정을 생성하세요</div>
+              <div className={styles.inputDiv}>
+                <label className={styles.inputLabel} htmlFor="id">아이디</label>
+                <input id="id" className={styles.input} type="text" placeholder=""
                        value={id}
                        onChange={onChangeId}
                 />
               </div>
-              <div className={style.inputDiv}>
-                <label className={style.inputLabel} htmlFor="name">닉네임</label>
-                <input id="name" className={style.input} type="text" placeholder=""
+              <div className={styles.inputDiv}>
+                <label className={styles.inputLabel} htmlFor="name">닉네임</label>
+                <input id="name" className={styles.input} type="text" placeholder=""
                        value={nickname}
                        onChange={onChangeNickname}
                 />
               </div>
-              <div className={style.inputDiv}>
-                <label className={style.inputLabel} htmlFor="password">비밀번호</label>
-                <input id="password" className={style.input} type="password" placeholder=""
+              <div className={styles.inputDiv}>
+                <label className={styles.inputLabel} htmlFor="password">비밀번호</label>
+                <input id="password" className={styles.input} type="password" placeholder=""
                        value={password}
                        onChange={onChangePassword}
                 />
               </div>
-              <div className={style.inputDiv}>
-                <label className={style.inputLabel} htmlFor="image">프로필</label>
-                <input id="image" className={style.input} type="file" accept="image/*"
+              <div className={styles.inputDiv}>
+                <label className={styles.inputLabel} htmlFor="image">프로필</label>
+                <input id="image" className={styles.input} type="file" accept="image/*"
                        onChange={onChangeImageFile}
                 />
               </div>
             </div>
-            <div className={style.modalFooter}>
-              <button className={style.actionButton} disabled>가입하기</button>
+            <div className={styles.modalFooter}>
+              <button className={styles.actionButton} disabled={!id || !password || !nickname}>가입하기</button>
             </div>
           </form>
         </div>

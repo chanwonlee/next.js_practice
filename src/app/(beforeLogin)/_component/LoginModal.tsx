@@ -1,26 +1,27 @@
 "use client";
 
 import style from '@/app/(beforeLogin)/_component/login.module.css';
-import {useState, useEffect} from "react";
+import {useState, useEffect, ChangeEventHandler} from "react";
 import {useRouter} from "next/navigation";
+import ModalHeader from "@/app/(beforeLogin)/_component/ModalHeader";
+import styles from "@/app/(beforeLogin)/_component/signup.module.css";
 
 export default function LoginModal() {
-  const [id, setId] = useState();
-  const [password, setPassword] = useState();
-  const [message, setMessage] = useState();
-  const onSubmit = () => {
-  };
-
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
   const router = useRouter();
 
-  const onClickClose = () => {
-    router.back();
+  const onSubmit = () => {
+
   };
 
-  const onChangeId = () => {
+  const onChangeId: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setId(e.target.value)
   };
 
-  const onChangePassword = () => {
+  const onChangePassword: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setPassword(e.target.value)
   };
 
   useEffect(() => {
@@ -39,13 +40,10 @@ export default function LoginModal() {
   return (
     <div className={style.modalBackground}>
       <div className={style.modal}>
-        <div className={style.modalHeader}>
-          <button className={style.closeButton} onClick={onClickClose}>
-          </button>
-          <div>로그인하세요.</div>
-        </div>
+        <ModalHeader />
         <form onSubmit={onSubmit}>
           <div className={style.modalBody}>
+            <div className={styles.modalBodyHeader}>X 가입하기</div>
             <div className={style.inputDiv}>
               <label className={style.inputLabel} htmlFor="id">아이디</label>
               <input id="id" className={style.input} value={id} onChange={onChangeId} type="text" placeholder=""/>
@@ -55,11 +53,9 @@ export default function LoginModal() {
               <input id="password" className={style.input} value={password} onChange={onChangePassword} type="password"
                      placeholder=""/>
             </div>
+            <button className={style.actionButton} disabled={!id || !password}>다음</button>
           </div>
           <div className={style.message}>{message}</div>
-          <div className={style.modalFooter}>
-            <button className={style.actionButton} disabled={!id && !password}>로그인하기</button>
-          </div>
         </form>
       </div>
     </div>
