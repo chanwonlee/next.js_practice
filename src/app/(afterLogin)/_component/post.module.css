@@ -8,6 +8,8 @@
     transition-property: background-color, box-shadow;
     transition-duration: 0.2s;
     cursor: pointer;
+    border-right: 1px solid rgb(239, 243, 244);
+    border-left: 1px solid rgb(239, 243, 244);
 }
 
 .post:hover {

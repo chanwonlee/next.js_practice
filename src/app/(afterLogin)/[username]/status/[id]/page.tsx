@@ -6,22 +6,26 @@ import CommentForm from "@/app/(afterLogin)/[username]/status/[id]/_component/Co
 export default function SinglePost() {
   return (
     <div className={styles.main}>
-      <div className={styles.header}>
-        <BackButton/>
-        <h3 className={styles.headerTitle}>게시하기</h3>
+      <div className={styles.headerWrapper}>
+        <div className={styles.header}>
+          <BackButton/>
+          <h3 className={styles.headerTitle}>게시하기</h3>
+        </div>
       </div>
-      <Post />
-      <CommentForm />
-      <div>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+      <div className={styles.contents}>
+        <Post/>
+        <CommentForm/>
+        <div>
+          <Post/>
+          <Post/>
+          <Post/>
+          <Post/>
+          <Post/>
+          <Post/>
+          <Post/>
+          <Post/>
+          <Post/>
+        </div>
       </div>
     </div>
   )

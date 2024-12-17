@@ -5,10 +5,23 @@
     align-items: stretch;
 }
 
+.headerWrapper {
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-color: rgb(239, 243, 244);
+    backdrop-filter: blur(20px);
+    display: inline-block;
+    border-right: 1px solid rgb(239, 243, 244);
+    border-left: 1px solid rgb(239, 243, 244);
+    width: 600px;
+}
+
 .header {
     display: flex;
     height: 53px;
     align-items: center;
+    backdrop-filter: blur(20px);
 }
 
 .headerTitle {
@@ -22,6 +35,8 @@
     align-items: center;
     border-bottom: 1px solid rgb(239, 243, 244);
     padding: 12px 15px;
+    border-right: 1px solid rgb(239, 243, 244);
+    border-left: 1px solid rgb(239, 243, 244);
 }
 
 .userImage {
@@ -30,21 +45,26 @@
     margin-right: 12px;
     border-radius: 50%;
 }
+
 .userImage img {
     width: 134px;
     border-radius: 50%;
 }
+
 .userName {
     margin: 0 12px;
     flex: 1;
 }
+
 .userName > div:first-child {
     font-weight: bold;
     font-size: 20px;
 }
+
 .userName > div:last-child {
     font-size: 15px;
 }
+
 .followButton {
     border: 1px solid rgb(207, 217, 222);
     padding: 0 16px;
@@ -58,8 +78,9 @@
     color: white;
     cursor: pointer;
 }
+
 .followButton:hover {
-    background-color: rgb(39,44,48);
+    background-color: rgb(39, 44, 48);
 }
 
 .backButton {
@@ -73,6 +94,11 @@
     justify-content: center;
     cursor: pointer;
 }
+
 .backButton:hover {
     background-color: rgba(15, 20, 25, 0.1);
+}
+
+.contents {
+    margin-top: 54px;
 }

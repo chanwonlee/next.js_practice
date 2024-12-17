@@ -1,4 +1,4 @@
-import styles from "@/app/(afterLogin)/layout.module.css";
+import styles from "./searchForm.module.css"
 
 type Props = {q?: string};
 export default function SearchForm({ q }: Props) {
