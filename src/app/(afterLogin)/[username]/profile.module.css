@@ -1,5 +1,5 @@
 .main {
-    width: 600px;
+    width: 599px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -10,18 +10,15 @@
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.85);
     border-color: rgb(239, 243, 244);
-    backdrop-filter: blur(20px);
     display: inline-block;
-    border-right: 1px solid rgb(239, 243, 244);
-    border-left: 1px solid rgb(239, 243, 244);
-    width: 600px;
+    width: 598px;
 }
 
 .header {
     display: flex;
     height: 53px;
     align-items: center;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
 }
 
 .headerTitle {
@@ -35,8 +32,6 @@
     align-items: center;
     border-bottom: 1px solid rgb(239, 243, 244);
     padding: 12px 15px;
-    border-right: 1px solid rgb(239, 243, 244);
-    border-left: 1px solid rgb(239, 243, 244);
 }
 
 .userImage {
@@ -66,7 +61,7 @@
 }
 
 .followButton {
-    border: 1px solid rgb(207, 217, 222);
+    border: 1px solid black;
     padding: 0 16px;
     border-radius: 17px;
     height: 34px;
@@ -86,7 +81,8 @@
 .backButton {
     width: 34px;
     height: 34px;
-    background-color: #fff;
+    backdrop-filter: blur(12px);
+    background-color: rgba(0, 0, 0, 0.00);
     border: none;
     border-radius: 17px;
     display: flex;

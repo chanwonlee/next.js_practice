@@ -5,8 +5,10 @@ import Trend from "@/app/(afterLogin)/_component/Trend";
 export default function Page() {
   return (
     <main className={styles.main}>
-      <div className={styles.formZone}>
-        <SearchForm/>
+      <div className={styles.headerWrapper}>
+        <div className={styles.header}>
+          <SearchForm/>
+        </div>
       </div>
       <div className={styles.trend}>
         <h3>나를 위한 트렌드</h3>

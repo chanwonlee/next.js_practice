@@ -9,6 +9,7 @@ import PremiumSection from "@/app/(afterLogin)/_component/PremiumSection";
 import TrendSection from "@/app/(afterLogin)/_component/TrendSection";
 import FollowRecommend from "@/app/(afterLogin)/_component/FollowRecommend";
 import RightSearchZone from "@/app/(afterLogin)/_component/RightSearchZone";
+import RightHeader from "@/app/(afterLogin)/_component/RightHeader";
 
 type Props = { children: ReactNode, modal: ReactNode; }
 export default function AfterLoginLayout({children, modal}: Props) {
@@ -45,7 +46,7 @@ export default function AfterLoginLayout({children, modal}: Props) {
           <div className={styles.rightSectionInner}>
             <main className={styles.main}>{children}</main>
             <section className={styles.rightSection}>
-              <RightSearchZone/>
+              <RightHeader/>
               <PremiumSection/>
               <TrendSection/>
               <div className={styles.followRecommend}>

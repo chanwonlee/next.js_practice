@@ -16,13 +16,11 @@
 }
 
 .postForm {
-    margin-top: 55px;
+    margin-top: 60px;
     display: flex;
     width: inherit;
     border-bottom: 1px rgb(239, 243, 244) solid;
     padding: 0 16px 8px;
-    border-right: 1px solid rgb(239, 243, 244);
-    border-left: 1px solid rgb(239, 243, 244);
 }
 
 .postInputSection {
