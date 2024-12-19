@@ -19,8 +19,7 @@ export default function SignupModal() {
     }
     let shouldRedirect = false;
     try {
-      console.log(process.env.NEXT_PUBLIC_API_URL + "/api/users")
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`, {
         method: 'post',
         body: formData,
         credentials: 'include',

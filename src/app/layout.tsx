@@ -4,7 +4,7 @@ import '@/app/globals.css'
 import {MSWProvider} from "@/app/_component/MSWcomponent";
 
 if (process.env.NEXT_RUNTIME === 'nodejs' && process.env.NODE_ENV !== 'production') {
-  const {server} = require('@/mocks/http')
+  const { server } = require('@/mocks/http');
   server.listen();
 }
 
