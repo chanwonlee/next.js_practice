@@ -1,66 +1,43 @@
-"use client";
-
 import styles from '@/app/(beforeLogin)/_component/signup.module.css';
-import {useRouter} from "next/navigation";
-import {ChangeEventHandler, FormEventHandler, useEffect, useState} from "react";
 import ModalHeader from "@/app/(beforeLogin)/_component/ModalHeader";
+import {redirect} from "next/navigation";
 
 export default function SignupModal() {
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [image, setImage] = useState('');
-  const [imageFile, setImageFile] = useState<File>();
-  const router = useRouter();
+  const submit = async (formData: FormData) => {
+    "use server";
+    if (!formData.get('id')) {
+      return {message: 'no_id'};
+    }
+    if (!formData.get('name')) {
+      return {message: 'no_name'};
+    }
+    if (!formData.get('password')) {
+      return {message: 'no_password'};
+    }
+    if (!formData.get('image')) {
+      return {message: 'no_image'};
+    }
+    let shouldRedirect = false;
+    try {
+      console.log(process.env.NEXT_PUBLIC_API_URL + "/api/users")
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`, {
+        method: 'post',
+        body: formData,
+        credentials: 'include',
+      })
 
-  const onChangeId: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setId(e.target.value)
-  };
-
-  const onChangePassword: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setPassword(e.target.value)
-  };
-
-  const onChangeNickname: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setNickname(e.target.value)
-  };
-
-  const onChangeImageFile: ChangeEventHandler<HTMLInputElement> = (e) => {
-    e.target.files && setImageFile(e.target.files[0])
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (e: any) => {
-      if (e.key === "Escape") {
-        router.back();
+      if (response.status === 403) {
+        return {message: 'user_exists'}
       }
-    };
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [router]);
-
-  const onSubmit: FormEventHandler = (e) => {
-    e.preventDefault();
-    fetch('http://localhost:9090/api/users', {
-      method: 'post',
-      body: JSON.stringify({
-        id,
-        nickname,
-        image,
-        password,
-      }),
-      credentials: 'include',
-    }).then((response: Response) => {
-      console.log(response.status);
-      if (response.status === 200) {
-        router.replace('/home');
-      }
-    }).catch((err) => {
+      shouldRedirect = true;
+    } catch (err) {
       console.error(err);
-    });
+    }
+
+    if (shouldRedirect) {
+      redirect('/home');
+    }
   }
 
   return (
@@ -68,39 +45,36 @@ export default function SignupModal() {
       <div className={styles.modalBackground}>
         <div className={styles.modal}>
           <ModalHeader/>
-          <form>
+          <form action={submit}>
             <div className={styles.modalBody}>
               <div className={styles.modalBodyHeader}>계정을 생성하세요</div>
               <div className={styles.inputDiv}>
                 <label className={styles.inputLabel} htmlFor="id">아이디</label>
-                <input id="id" className={styles.input} type="text" placeholder=""
-                       value={id}
-                       onChange={onChangeId}
+                <input id="id" name="id" className={styles.input} type="text" placeholder=""
+                       required
                 />
               </div>
               <div className={styles.inputDiv}>
                 <label className={styles.inputLabel} htmlFor="name">닉네임</label>
-                <input id="name" className={styles.input} type="text" placeholder=""
-                       value={nickname}
-                       onChange={onChangeNickname}
+                <input id="name" name="name" className={styles.input} type="text" placeholder=""
+                       required
                 />
               </div>
               <div className={styles.inputDiv}>
                 <label className={styles.inputLabel} htmlFor="password">비밀번호</label>
-                <input id="password" className={styles.input} type="password" placeholder=""
-                       value={password}
-                       onChange={onChangePassword}
+                <input id="password" name="password" className={styles.input} type="password" placeholder=""
+                       required
                 />
               </div>
               <div className={styles.inputDiv}>
                 <label className={styles.inputLabel} htmlFor="image">프로필</label>
-                <input id="image" className={styles.input} type="file" accept="image/*"
-                       onChange={onChangeImageFile}
+                <input id="image" name="image" className={styles.input} type="file" accept="image/*"
+                       required
                 />
               </div>
             </div>
             <div className={styles.modalFooter}>
-              <button className={styles.actionButton} disabled={!id || !password || !nickname}>가입하기</button>
+              <button className={styles.actionButton}>가입하기</button>
             </div>
           </form>
         </div>

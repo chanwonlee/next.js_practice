@@ -1,3 +1,5 @@
+"use client"
+
 import styles from "./modalHeader.module.css"
 import {useRouter} from "next/navigation";
 
